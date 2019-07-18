@@ -9,7 +9,7 @@ from mysql_dbconfig import read_db_config
 
 def analyze(file_path):
     file = pd.read_csv(file_path)
-    # file = pd.read_csv('/Users/saurav/PycharmProjects/WebGraph/input.csv')
+    # file = pd.read_csv('/Users/blee/PycharmProjects/WebGraph/input.csv')
     dbconfig = read_db_config()
     con = MySQLConnection(**dbconfig)
     cur = con.cursor()
@@ -152,7 +152,7 @@ def analyze(file_path):
             cursor.close()
             conn.close()
 
-    ipc_recall, ipc_mpr = ipc_read()
+    ipc_recall, ipc_mpr, ipc_precision = ipc_read()
 
     # CPC
     def cpc_read():
@@ -282,7 +282,7 @@ def analyze(file_path):
             cur.close()
             con.close()
 
-    cpc_recall, cpc_mpr = cpc_read()
+    cpc_recall, cpc_mpr, cpc_precision = cpc_read()
 
     # UPC
     # def upc_read():
@@ -470,7 +470,7 @@ def analyze(file_path):
 
         return
 
-    upc_recall, upc_mpr = upc_read()
+    upc_recall, upc_mpr, upc_precision = upc_read()
 
     comb_IPC_CPC = []
     comb_IPC_UPC = []
@@ -492,6 +492,6 @@ def analyze(file_path):
     # print(comb_IPC_CPC)
     combination = list(map(list, zip(comb_IPC_CPC, comb_IPC_UPC)))
     # print(combination)
-    return combination, ipc_recall, ipc_mpr, cpc_recall, cpc_mpr, upc_recall, upc_mpr
+    return combination, ipc_recall, ipc_mpr, cpc_recall, cpc_mpr, upc_recall, upc_mpr, ipc_precision, cpc_precision, upc_precision
 
 # analyze("WebGraph/uploads/input.csv")
