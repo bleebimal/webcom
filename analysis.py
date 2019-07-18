@@ -20,7 +20,12 @@ def analyze(file_path):
     # take ipc class, drop empty class and split on the basis of '|'
 
     def ipc_read():
-        ipc = file['IPC(s)'].dropna().str.split('|')
+        column = file.columns.tolist()
+
+        if 'IPC(s)' in column:
+            ipc = file['IPC(s)'].dropna().str.split('|')
+        else:
+            ipc = file['IPC'].dropna().str.split('|')
         ipc_c = []
 
         for items in ipc:
@@ -151,7 +156,12 @@ def analyze(file_path):
 
     # CPC
     def cpc_read():
-        cpc = file['CPC(s)'].dropna().str.split('|')  # removing pipe(|) from a single CPC cell for a patent
+        column = file.columns.tolist()
+
+        if 'CPC(s)' in column:
+            cpc = file['CPC(s)'].dropna().str.split('|')
+        else:
+            cpc = file['CPC'].dropna().str.split('|')  # removing pipe(|) from a single CPC cell for a patent
 
         cpc_c = []
 
@@ -317,7 +327,12 @@ def analyze(file_path):
         conn = MySQLConnection(**dbconfig)
         cursor = conn.cursor()
 
-        upc = file['UPC(s)'].dropna().str.split('|')
+        column = file.columns.tolist()
+
+        if 'UPC(s)' in column:
+            upc = file['UPC(s)'].dropna().str.split('|')
+        else:
+            upc = file['UPC'].dropna().str.split('|')  # removing pipe(|) from a single UPC cell for a patent
 
         upc_c = []
 
