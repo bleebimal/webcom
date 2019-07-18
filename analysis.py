@@ -143,7 +143,7 @@ def analyze(file_path):
 
             ipc_mpr_final.plot.bar()
             plt.show()
-            return dataframe_ipc_recall.head(10), ipc_mpr_show.head(10)
+            return dataframe_ipc_recall.head(10), ipc_mpr_show.head(10), ipc_precision_final
 
         except Error as e:
             print(e)
@@ -273,7 +273,7 @@ def analyze(file_path):
             print(cpc_read.cpc_top5)
             cpc_mpr_final.plot.bar()
             plt.show()
-            return dataframe_cpc_recall.head(10), cpc_mpr_show.head(10)
+            return dataframe_cpc_recall.head(10), cpc_mpr_show.head(10), cpc_precision_final
 
         except Error as e:
             print(e)
@@ -459,7 +459,7 @@ def analyze(file_path):
 
             print(
                 "================================================================================================================")
-            return dataframe_upc_recall.head(10), upc_mpr_show.head(10)
+            return dataframe_upc_recall.head(10), upc_mpr_show.head(10), upc_precision_final
 
         except Error as e:
             print(e)
