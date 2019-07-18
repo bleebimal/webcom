@@ -43,7 +43,7 @@ def analyze_data(request):
     except:
         messages.add_message(request, messages.ERROR, 'Some Error Occurred!!!')
 
-    combination, ipc_r, ipc_p, cpc_p, upc_p, ipc_m, cpc_r, cpc_m, upc_r, upc_m = (analyze(full_filename) for i in range(10))
+    combination, ipc_r, ipc_p, cpc_p, upc_p, ipc_m, cpc_r, cpc_m, upc_r, upc_m = analyze(full_filename)
 
     print("VIEWS.PY " + str(combination))
 
