@@ -120,6 +120,18 @@
                 </div>
             </div>
 
+           <hr>
+            <h3 class='header'>IPC PRECISION</h3>
+
+            <div class="row">
+                <div class="col s8">
+                    {{ ipc_chart_p.as_html }}
+                </div>
+                <div class="col s4">
+                    {% autoescape off %}{{ ipc_table_p }}{% endautoescape %}
+                </div>
+            </div>
+
             <hr>
             <h3 class='header'>IPC MPR</h3>
 
@@ -148,6 +160,17 @@
                 </div>
             </div>
 
+            <hr>
+            <h3 class='header'>UPC PRECISION</h3>
+
+            <div class="row">
+                <div class="col s8">
+                    {{ upc_chart_p.as_html }}
+                </div>
+                <div class="col s4">
+                    {% autoescape off %}{{ upc_table_p }}{% endautoescape %}
+                </div>
+            </div>
 
             <hr>
             <h3 class='header'>UPC MPR</h3>
@@ -177,6 +200,17 @@
                 </div>
             </div>
 
+            <hr>
+            <h3 class='header'>CPC PRECISION</h3>
+
+            <div class="row">
+                <div class="col s8">
+                    {{ cpc_chart_p.as_html }}
+                </div>
+                <div class="col s4">
+                    {% autoescape off %}{{ cpc_table_p }}{% endautoescape %}
+                </div>
+            </div>
 
             <hr>
             <h3 class='header'>CPC MPR</h3>
