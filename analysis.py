@@ -467,8 +467,6 @@ def analyze(file_path):
             cursor.close()
             conn.close()
 
-        return
-
     upc_recall, upc_precision, upc_mpr = upc_read()
 
     comb_IPC_CPC = []
@@ -491,6 +489,6 @@ def analyze(file_path):
     # print(comb_IPC_CPC)
     combination = list(map(list, zip(comb_IPC_CPC, comb_IPC_UPC)))
     # print(combination)
-    return combination, ipc_recall, ipc_mpr, cpc_recall, cpc_mpr, upc_recall, upc_mpr, ipc_precision, cpc_precision, upc_precision
+    return combination, ipc_recall, ipc_precision, ipc_mpr, cpc_recall, cpc_precision, cpc_mpr, upc_recall, upc_precision, upc_mpr
 
 # analyze("WebGraph/uploads/input.csv")
